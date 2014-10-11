@@ -1,0 +1,371 @@
+huffman
+=======
+TEST UNITARIO
+Descompresión
+#include <stadio.h>
+#include <stdlib.h>
+ int Test_general_descompession()
+{ 
+     char* codigo_prueba="011100101101010111111011000100101101010111110111101110011000";
+ struct tabla tabla-prueba="a0,t1110,''10,l1101,j111111,c1100,e111110,s11110";
+ char* frase-cromp="ata la jaca a la estaca";
+struct tabla tabla-resultado;  
+char codigo-resultado(8o)%;
+descomprime(frase-prueba, &tabla-resultado, &codigo-resultado)
+if(stc cpm(codigo-comp,codigo-resutado)!=0)
+{
+MSS
+return 0;
+}
+if(tabla-prueba!=tabla-resultado)
+{ 
+MSS
+   return 0;
+ }                               }
+return 1;
+}
+
+Test unitario para el análisis de
+Compresión.
+#include "cu/cu.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+TEST(tesT1)
+{
+assertTrue(j);
+void tejer()
+{
+int menor=-1;
+int segundo=-1;
+int temporal;
+int j;
+struct nodo *P;
+if (nsimb==1) return 0 ;
+for(j=0;j<256;++j){
+if (TELAR[j]==NULL) continue;
+if (TELAR[j]->cuenta==0) continue;
+if (menor==-1){
+menor=j;
+temporal=TELAR[j]->cuenta;
+} else
+{
+if (TELAR[j]->cuenta<temporal){
+menor=j;
+temporal=TELAR[j]->cuenta;
+}
+}
+}
+}
+//TEST(test2)
+for(j=0;j<256;++j){
+if (TELAR[j]==NULL) continue;
+if (TELAR[j]->cuenta==0) continue;
+if (j==menor) continue;
+if (segundo==-1){
+segundo=j;
+temporal=TELAR[j]->cuenta;
+} else
+{
+if (TELAR[j]->cuenta<temporal){
+segundo=j;
+temporal=TELAR[j]->cuenta;
+}
+}
+}
+//TEST (test 3)
+{
+assertTrue(*g)
+int escribe_cabecera(char *destino)
+{
+int j,k;
+FILE *g;
+char *p=(char *)(&NBYTES);
+if ((g=fopen(destino,"wb"))==NULL)
+return(1);
+for(j=0;j<4;++j){
+fputc(*p,g);
+++p;
+}
+p=(char *)(&NSIMB);
+fputc(*p,g);
+for(j=0;j<256;++j){
+if (HOJAS[j].cuenta==0) continue;
+fputc(j,g);
+p=(char *)(&(HOJAS[j].cuenta));
+for(k=0;k<4;++k){
+fputc(*p,g);
+++p;
+}
+}
+fclose(g);
+return(0);
+assertEquals(*g, *g);
+}
+//TEST (test 4)
+{assertTrue(*p, d,x,nbit)
+int comprimir(char *origen, char *destino)
+{
+unsigned char d=0;
+int x;
+char nbit=0;
+char *p;
+if ((f=fopen(origen,"rb"))==NULL)
+return(1);
+if ((g=fopen(destino,"ab"))==NULL)
+return(2); 
+while ((x=fgetc(f))!=EOF){
+p=HOJAS[x].codigo;
+while (*p!=2){
+if (nbit==8){
+nbit=0;
+fputc(d,g);
+d=0;
+} else
+{
+if (*p==1){
+d|=(1<<nbit);
+}
+++nbit;
+++p;
+}
+}
+}
+fputc(d,g);
+fclose(f);
+fclose(g);
+return(0);
+assertEquals(*p, d,x,nbit)
+}
+TEST(test5)
+/* crear hoja */
+{
+assertTrue(j);
+int j;
+for(j=0;j<256;++j)
+{
+HOJAS[j].der=HOJAS[j].izq=HOJAS[j].arr=NUL
+L;
+HOJAS[j].cuenta=0;
+HOJAS[j].karacter=j;
+HOJAS[j].codigo=NULL;
+}
+if ((f=fopen(archivo,"rb"))!=NULL)
+{
+while ((j=fgetc(f))!=EOF)
+{
+++HOJAS[j].cuenta;
+++NBYTES;
+}
+fclose(f);
+} else
+{
+return(1);
+}
+for(j=0;j<256;++j)
+{
+if (HOJAS[j].cuenta!=0)
+++NSIMB;
+} nsimb=NSIMB;
+}
+printf(" j\n");
+assertEquals(j, j);
+return(0);
+}
+
+
+
+//TEST(test6)
+
+{
+assetTrue(j);
+void preparar_telar()
+{
+int j;
+for(j=0;j<256;++j){
+TELAR[j]=&(HOJAS[j]);
+}
+Return 0;
+}
+asserttrue(j);
+printf(j\n");
+assertEquals(j, j);
+}
+void codificar()
+{
+    char pila[64];
+    char tope;
+    int j;
+    char *w;
+    struct nodo *P;
+    for(j=0;j<256;++j){
+        if (HOJAS[j].cuenta==0) continue;
+        P=(struct nodo *)(&(HOJAS[j]));
+        tope=0;
+        while (P->arr!=NULL){
+            pila[tope]=P->bit;
+            ++tope;
+            P=P->arr;
+        }
+        HOJAS[j].nbits=tope;
+        HOJAS[j].codigo=(char *)malloc((tope+1)*sizeof(char));
+        w=HOJAS[j].codigo;
+        --tope;
+        while (tope>-1){
+            *w=pila[tope];
+            --tope;
+            ++w;
+        }
+        *w=2;
+    }
+    return ;
+}
+/*--------------------------------
+debug. Imprime la info sobre cada
+carácter, como número de apariciones
+y cadena con que se codifica
+--------------------------------*/
+void debug()
+{
+    int j,k;
+    char *w;
+    int tam_comprimido=0;
+    for(j=0;j<256;++j){
+        if (HOJAS[j].cuenta==0) continue;
+        tam_comprimido+=(HOJAS[j].cuenta*HOJAS[j].nbits);
+        printf("%3d %6d ",j,HOJAS[j].cuenta);
+w=HOJAS[j].codigo;
+        while (*w!=2){
+            printf("%c",48+(*w));
+            ++w;
+        }
+        printf("\n");
+    }
+    printf("NSIMB: %d\n",NSIMB);
+    printf("NBYTES: %d\n",NBYTES);
+    printf("TAMAÑO COMPRIMIDO: %d\n",tam_comprimido/8+1);
+    return;
+}
+/*--------------------------------
+Escribe la cabecera del archivo de
+destino. La cabecera contiene: el
+número de bytes del archivo origen,
+el número de caracteres distintos
+en ese archivo y una lista de parejas
+número de carácter-cuenta de ese
+carácter. Eso es suficiente para la
+descompresión
+--------------------------------*/
+int escribe_cabecera(char *destino)
+{
+    int j,k;
+    FILE *g;
+
+    char *p=(char *)(&NBYTES);    
+    if ((g=fopen(destino,"wb"))==NULL) return(1);
+    for(j=0;j<4;++j){
+        fputc(*p,g);
+        ++p;
+    }
+
+    p=(char *)(&NSIMB);
+    fputc(*p,g);
+
+    for(j=0;j<256;++j){
+        if (HOJAS[j].cuenta==0) continue;
+        fputc(j,g);
+        p=(char *)(&(HOJAS[j].cuenta));
+        for(k=0;k<4;++k){
+            fputc(*p,g);
+            ++p;
+        }
+    }
+    fclose(g);
+    return(0);
+}
+/*--------------------------------
+Una vez construido el árbol y codificado
+cada carácter se puede proceder a la
+compresión: se tomará carácter a carácter
+del archivo origen y se usará la cadena
+de codificación para ir escribiendo
+bits en un buffer de un carácter, que
+cada vez que quede lleno se pasará al
+archivo de destino
+--------------------------------*/
+int comprimir(char *origen, char *destino)
+{
+    unsigned char d=0;
+    int x;
+    char nbit=0;
+    char *p;
+
+    if ((f=fopen(origen,"rb"))==NULL) return(1);
+    if ((g=fopen(destino,"ab"))==NULL) return(2);/* ya esta la cabecera */
+
+    while ((x=fgetc(f))!=EOF){
+        p=HOJAS[x].codigo;
+        while (*p!=2){
+            if (nbit==8){
+                nbit=0;
+                fputc(d,g);
+                d=0;
+            } else
+            {
+                if (*p==1){
+                    d|=(1<<nbit);
+                }
+                ++nbit;
+                ++p;
+            }
+        }
+    }
+    fputc(d,g);
+    fclose(f);
+    fclose(g);
+    return(0);
+}
+
+/*--------------------------------
+Descomprime el archivo. El primer paso
+es leer la cabecera, paso previo a la
+descompresión. Recuerdo formato de
+la cabecera: 
+NBYTES|NSIMB|(char,cuenta)*
+--------------------------------*/
+int descomprimir(char *origen, char *destino)
+{
+    char *p;
+    int j,k,n,m;
+    unsigned char x,nbit;
+    struct nodo *P,*Q;
+
+    if ((g=fopen(origen,"rb"))==NULL) return(1);   
+    if ((f=fopen(destino,"wb"))==NULL) return(2);
+
+    /* leer NBYTES */
+  p=(char *)(&n);
+    for(j=0;j<4;++j){
+  *p=(unsigned char)fgetc(g);
+        ++p;
+    }
+    NBYTES=n;
+
+/* leer NSIMB */
+   NSIMB=nsimb=fgetc(g);
+
+/* preparar las hojas */
+   for(j=0;j<256;++j){
+        HOJAS[j].cuenta=0;
+        HOJAS[j].izq=HOJAS[j].der=HOJAS[j].arr=NULL;
+        HOJAS[j].karacter=j;
+    }
+    for(j=0;j<NSIMB;++j){
+        n=fgetc(g);  
+        p=(char *)(&m);
+        for(k=0;k<4;++k){
+            *p=(unsigned char)fgetc(g);
+            ++p;
+        }
+        HOJAS[n].cuenta=m;
+    }
